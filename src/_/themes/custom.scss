@@ -7,3 +7,15 @@
         margin-right: 5px;
     }
 }
+
+.card-sm {
+    .card-header {
+        font-size: 1em;
+        padding: 3px 8px;
+        font-weight: bold;
+    }
+    .card-body {
+        padding: 3px 8px;
+        overflow: hidden;
+    }
+}

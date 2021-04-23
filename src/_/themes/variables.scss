@@ -2,35 +2,73 @@
 //Working on: Simplex
 
 $white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #ddd;
-$gray-300: #ccc;
-$gray-400: #bbb;
+$gray-100: #f6f6f6;
+$gray-200: #f0f0f0;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
 $gray-500: #adb5bd;
-$gray-600: #777;
-$gray-700: #444;
-$gray-800: #373a3c;
-$gray-900: #212529;
+$gray-600: #999;
+$gray-700: #555;
+$gray-800: #333;
+$gray-900: #222;
 $black: #000;
-$blue: #007bff;
+$blue: #158cba;
 $indigo: #6610f2;
-$purple: #9b479f;
+$purple: #6f42c1;
 $pink: #e83e8c;
-$red: #d9230f;
-$orange: #d9831f;
-$yellow: #ffc107;
-$green: #469408;
+$red: #ff4136;
+$orange: #fd7e14;
+$yellow: #ff851b;
+$green: #28b62c;
 $teal: #20c997;
-$cyan: #029acf;
-$primary: $red;
-$secondary: $white;
+$cyan: #75caeb;
+$primary: #2c0643;
+$secondary: $gray-300;
+//$secondary: #adb5bd;
 $success: $green;
 $info: $cyan;
-$warning: $purple;
-$danger: $orange;
-$light: $white;
-$dark: $gray-800;
-$dropdown-link-hover-color: $white;
-$dropdown-link-hover-bg: $primary;
-$navbar-dark-color: rgba($white, 0.75);
-$navbar-dark-hover-color: $white;
+$warning: $yellow;
+$danger: #c2185b;
+$light: $gray-100;
+$dark: $gray-700;
+$yiq-contrasted-threshold: 200;
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-size-base: 0.875rem;
+$btn-font-size: 0.75rem;
+$btn-font-size-sm: 0.625rem;
+$btn-font-weight: bold;
+$dropdown-link-color: rgba(0, 0, 0, 0.5);
+$pagination-color: $gray-700;
+$pagination-bg: $gray-200;
+$pagination-hover-color: $pagination-color;
+$pagination-hover-bg: $pagination-bg;
+$pagination-active-border-color: darken($primary, 5%);
+$pagination-disabled-color: $gray-600;
+$pagination-disabled-bg: $pagination-bg;
+$jumbotron-bg: #fafafa;
+$modal-content-border-color: rgba($black, 0.1);
+$close-color: $white;
+/* input*/
+$input-btn-padding-y: 0.2rem;
+$input-btn-padding-x: 0.6rem;
+
+$input-btn-padding-y-sm: 0.13rem;
+$input-btn-padding-x-sm: 0.4rem;
+
+$input-btn-padding-y-lg: 0.3rem;
+$input-btn-padding-x-lg: 0.8rem;
+
+$card-spacer-y: 0.3rem !default;
+$card-spacer-x: 0.8rem !default;
+
+$list-group-item-padding-y: 0.3rem !default;
+$list-group-item-padding-x: 0.8rem !default;
+
+$nav-link-padding-y: 0.3rem !default;
+$nav-link-padding-x: 0.5rem !default;
+
+$table-cell-padding: 0.1rem 0.5rem !default;
+$table-cell-padding-sm: 0.1rem 0.5rem !default;
+$table-accent-bg: #f5f5f5 !default;
+$table-striped-order: even !default;
