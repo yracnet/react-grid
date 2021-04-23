@@ -11,7 +11,7 @@ export const GridDraw = ({ store = 'draw', cols = [], rows = [], gaps = [] }) =>
         inlineDivStyle += `
 .grid-draw > .${it.name}{
     grid-area: ${it.start.c + 1} / ${it.start.r + 1} / ${it.end.c + 2} / ${it.end.r + 2};
-    border: 4px solid ${it.color}
+    border: 4px solid ${it.color};
 }
         `
 

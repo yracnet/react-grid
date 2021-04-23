@@ -1,17 +1,8 @@
 import React from 'react'
-import { useLocalStorage } from 'react-use-storage'
+import { useLocalStorage } from 'react-use-storage';
 
-
-export const GridItem = ({ title, name = 'grid-item' }) => {
-    const [state, setState] = useLocalStorage(name, []);
-    const onAppend = () => {
-        const item = {
-            key: new Date().getTime(),
-            value: 1,
-            unit: 'fr'
-        }
-        setState([...state, item])
-    }
+export const GridItem = ({ title, store }) => {
+    const [state, setState] = useLocalStorage(store, []);
     const onChange = ({ target }, ix) => {
         const { name, value } = target;
         const newState = [...state]
@@ -24,41 +15,31 @@ export const GridItem = ({ title, name = 'grid-item' }) => {
     }
     return (
         <div className="card card-sm mb-2">
-            <h5 className="card-header">
-                {title}
-                <button onClick={onAppend}
-                    className="btn btn-sm btn-primary float-right">+</button>
-            </h5>
+            <h5 className="card-header">{title}</h5>
             <div className="card-body">
-                {
-                    state.map((it, ix) => (
-                        <ItemInput key={it.key}
-                            model={it}
-                            onChange={e => onChange(e, ix)}
-                            onRemove={e => onRemove(ix)}
-                        />
-                    ))
-                }
+                {state.map((it, ix) => (
+                    <ItemInput model={it} index={ix} onChange={onChange} onRemove={onRemove} />
+                ))}
             </div>
         </div>
     )
 }
 
-const UNITS = ['fr', 'px', '%', 'em', 'auto', 'min-content', 'max-content', 'minmax']
+const COLORS = ['red', 'blue', 'green']
 const ItemInput = ({ index = 0, model = {}, onChange = console.log, onRemove = console.log }) => {
     return (
         <div className="input-group input-group-sm mb-1">
-            <input name="value"
-                type="number"
-                value={model.value}
+            <input name="name"
+                type="text"
+                value={model.name}
                 onChange={e => onChange(e, index)}
                 step={0.5}
                 className="form-control" />
-            <select name="unit"
-                value={model.unit}
+            <select name="color"
+                value={model.color}
                 onChange={e => onChange(e, index)}
                 className="custom-select">
-                {UNITS.map(unit => <option key={unit}>{unit}</option>)}
+                {COLORS.map(unit => <option key={unit}>{unit}</option>)}
             </select>
             <div className="input-group-append">
                 <button onClick={e => onRemove(index)}

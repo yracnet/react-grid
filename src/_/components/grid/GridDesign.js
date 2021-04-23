@@ -57,11 +57,7 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
                 onMouseDown={() => beginSelection(point)}
                 onMouseUp={() => endSelection(point)}
                 onMouseMove={() => updateSelection(point)}
-                className="item">
-                {cols[point.c]} x {rows[point.r]}
-                <code>
-                    {point.c} x {point.r}
-                </code>
+                className="cell">
             </div>
         )
         divs.push(div);

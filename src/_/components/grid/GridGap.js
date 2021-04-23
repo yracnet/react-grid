@@ -15,17 +15,20 @@ export const GridGap = ({ title, name = 'grid-gap' }) => {
         <div className="card card-sm mb-2">
             <h5 className="card-header">{title}</h5>
             <div className="card-body">
-                <GapInput index={0} model={state[0]} onChange={onChange} />
-                <GapInput index={1} model={state[1]} onChange={onChange} />
+                <GapInput name="X: " index={0} model={state[0]} onChange={onChange} />
+                <GapInput name="Y: " index={1} model={state[1]} onChange={onChange} />
             </div>
         </div>
     )
 }
 
 const UNITS = ['px', '%', 'em']
-const GapInput = ({ index = 99, model = {}, onChange = console.log }) => {
+const GapInput = ({ name, index = 99, model = {}, onChange = console.log }) => {
     return (
         <div className="input-group input-group-sm mb-1">
+            <div className="input-group-prepend">
+                <span className="input-group-text" id="basic-addon1">{name}</span>
+            </div>
             <input name="value"
                 type="number"
                 value={model.value}
