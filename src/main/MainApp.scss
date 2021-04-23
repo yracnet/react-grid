@@ -13,6 +13,8 @@ body,
 #root {
     width: 100vw;
     height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 .grid-main {
@@ -23,6 +25,7 @@ body,
     grid-template-rows: 1fr;
     grid-template-areas: "left main right";
     > .left {
+        overflow: auto;
         position: relative;
         grid-area: left;
         background-color: $primary;
@@ -42,6 +45,9 @@ body,
         }
         > .config {
             grid-area: config;
+            .card-body {
+                min-height: 80px;
+            }
         }
     }
     > .main {
@@ -54,17 +60,18 @@ body,
         }
     }
     > .right {
+        overflow: auto;
+        position: relative;
         grid-area: right;
         background-color: $primary;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 1fr 80px;
+        grid-template-rows: 80px 1fr 80px;
         gap: 5px 0px;
         grid-template-areas:
             "action"
             "source"
             "option";
-        position: relative;
         > .action {
             grid-area: action;
         }
@@ -73,6 +80,11 @@ body,
         }
         > .source {
             grid-area: source;
+            pre {
+                max-width: 350px;
+                min-height: 100px;
+                max-height: 500px;
+            }
         }
     }
 }

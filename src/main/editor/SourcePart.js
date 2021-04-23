@@ -1,31 +1,24 @@
 import { useLocalStorage } from 'react-use-storage';
+import { createCSS, createHTML } from '_/helpers/grid';
 
 export const SourcePart = ({ className }) => {
-    const [col] = useLocalStorage('columns', []);
-    const [row] = useLocalStorage('rows', []);
-    const [gap] = useLocalStorage('gaps', []);
+    const [cols] = useLocalStorage('columns', []);
+    const [rows] = useLocalStorage('rows', []);
+    const [gaps] = useLocalStorage('gaps', []);
+    const [items] = useLocalStorage('grid-design', []);
 
-    const gtc = col.reduce((str, it) => str + ' ' + it.value + it.unit, '');
-    const ctr = row.reduce((str, it) => str + ' ' + it.value + it.unit, '');
-    const gg = gap.reduce((str, it) => str + ' ' + it.value + it.unit, '');
+    const inlineStyle = createCSS('grid-container', { cols, rows, gaps, items });
+    const inlineHtml = createHTML('grid-container', { cols, rows, gaps, items });
 
-    const inlineStyle = `
-.grid-container {
-    display: grid;
-    grid-template-columns: ${gtc};
-    grid-template-rows: ${ctr};
-    gap: ${gg};
-    grid-template-areas:
-        ". . . . ."
-        ". . . . ."
-        ". . . . .";
-}
-    `
     return (
         <div className={className}>
-            <code className="card card-sm">
+            <code className='card card-sm mb-2'>
                 <h5 className="card-header">CSS Source</h5>
-                <pre className="card-body">{inlineStyle}</pre>
+                <pre className="card-body overflow-auto">{inlineStyle}</pre>
+            </code>
+            <code className='card card-sm mb-2'>
+                <h5 className="card-header">HTML Source</h5>
+                <pre className="card-body overflow-auto">{inlineHtml}</pre>
             </code>
         </div>
     )

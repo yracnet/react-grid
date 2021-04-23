@@ -1,7 +1,5 @@
 import React from 'react'
-import { GridUnit } from '_/components/grid';
-import { GridGap } from '_/components/grid';
-import { GridItem } from '_/components/grid/GridItem';
+import { GridUnit, GridGap, GridItem } from '_/components';
 
 export const ConfigPart = ({ name, ...props }) => {
     return (

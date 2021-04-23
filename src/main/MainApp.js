@@ -21,7 +21,7 @@ function MainApp() {
         <ConfigPart className="config" />
       </div>
 
-      <PreviewPart className="main" />
+      <PreviewPart className="main m-2" />
 
       <div className="right p-2" ref={refL}>
         {btnL}

@@ -65,14 +65,14 @@ const ItemInput = ({ index = 0, model = {}, onChange = console.log, onRemove = c
                 &&
                 <div className="popover">
                     <div className="popover-body">
+                        <SketchPicker color={model.color}
+                            onChange={e => onChangeColor(e, index)} />
                         <button className="btn btn-primary w-100"
                             style={{ backgroundColor: model.color }}
                             onClick={e => setOpen(false)}>
                             <i className="fa fa-times mr-2" />
-                        Close: {model.color}
+                            Close: {model.color}
                         </button>
-                        <SketchPicker color={model.color}
-                            onChange={e => onChangeColor(e, index)} />
                     </div>
                 </div>
             }

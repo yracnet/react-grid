@@ -8,6 +8,9 @@
         user-select: none;
         border: 2px solid red;
         overflow: hidden;
+        display: grid;
+        align-items: center;
+        text-align: center;
     }
     .legend {
         padding: 5px 10px;

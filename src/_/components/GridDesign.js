@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { useLocalStorage } from 'react-use-storage';
+import { createCSS } from '_/helpers/grid';
 import "./GridDesign.scss"
 NodeList.prototype.forEach = Array.prototype.forEach;
 
@@ -28,7 +29,7 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
     const endSelection = (point) => {
         selecting = false;
         end = point
-        setState([...state, { name: 'C_' + state.length, start, end, color: '#4A90E2' }])
+        setState([...state, { name: 'cell' + state.length, start, end, color: randomColor() }])
         ref.current.querySelectorAll('div').forEach(it => it.classList.remove('on'))
     };
 
@@ -48,7 +49,6 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
         }
     };
 
-
     for (let i = 0; i < size; i++) {
         const point = createPoint(i);
         const div = (
@@ -63,21 +63,21 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
         divs.push(div);
     }
 
-    const gridCols = cols.reduce((str, it) => str + ' ' + it, '');
-    const gridRows = rows.reduce((str, it) => str + ' ' + it, '');
-    const gridGaps = gaps.reduce((str, it) => str + ' ' + it, '');
-    const inlineStyle = `
-    .grid-design {
-        display: grid;
-        grid-template-columns: ${gridCols};
-        grid-template-rows: ${gridRows};
-        gap: ${gridGaps};
-    }
-    `
+    const inlineStyle = createCSS('grid-design', { cols, rows, gaps });
+
     return (
         <div className="grid-design" ref={ref}>
             <style>{inlineStyle}</style>
             {divs}
         </div>
     )
+}
+
+const randomColor = () => {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
