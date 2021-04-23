@@ -1,11 +1,10 @@
 import React, { useRef } from 'react'
 import { useLocalStorage } from 'react-use-storage';
 import "./GridDesign.scss"
+NodeList.prototype.forEach = Array.prototype.forEach;
 
-const INIT = { state: {}, end: {}, selected: false }
-
-export const GridDesign = ({ name = 'selected', cols = [], rows = [], gaps = [] }) => {
-    const [state, setState] = useLocalStorage(name, INIT);
+export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = [] }) => {
+    const [state, setState] = useLocalStorage(store, []);
     const size = cols.length * rows.length;
     const ref = useRef()
     let divs = [];
@@ -29,7 +28,8 @@ export const GridDesign = ({ name = 'selected', cols = [], rows = [], gaps = [] 
     const endSelection = (point) => {
         selecting = false;
         end = point
-        setState({ ...state, start, end, selected: true })
+        setState([...state, { name: 'C_' + state.length, start, end, edit: true }])
+        ref.current.querySelectorAll('div').forEach(it => it.classList.remove('on'))
     };
 
     const updateSelection = (point) => {

@@ -16,8 +16,8 @@ export const PreviewPart = ({ ...props }) => {
 
     return (
         <div {...props}>
-            <GridDraw cols={cols} rows={rows} gaps={gaps} name="grid-selected" selected="grid-selected" />
-            <GridDesign cols={cols} rows={rows} gaps={gaps} name="grid-selected" />
+            <GridDraw cols={cols} rows={rows} gaps={gaps} store="grid-design" />
+            <GridDesign cols={cols} rows={rows} gaps={gaps} store="grid-design" />
         </div>
     )
 }

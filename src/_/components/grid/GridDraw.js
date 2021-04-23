@@ -1,38 +1,27 @@
 import { useLocalStorage } from 'react-use-storage';
 import "./GridDraw.scss"
 
-const INIT = { state: {}, end: {}, selected: false }
 
-export const GridDraw = ({ name = 'draw', selected = 'selected', cols = [], rows = [], gaps = [] }) => {
-    const [state, setState] = useLocalStorage(name, INIT);
-    const size = cols.length * rows.length
-    const divs = []
+export const GridDraw = ({ store = 'draw', cols = [], rows = [], gaps = [] }) => {
+    const [state, setState] = useLocalStorage(store, []);
+    console.log('GridDraw--->', state);
+    let inlineDivStyle = '';
 
+    const divs = state.map((it, ix) => {
+        inlineDivStyle += `
+.grid-draw > .${it.name}{
+    grid-area: ${it.start.c + 1} / ${it.start.r + 1} / ${it.end.c + 2} / ${it.end.r + 2};
+    border: 4px solid ${it.color}
+}
+        `
 
-    const createPoint = (i) => {
-        return {
-            i,
-            c: Math.trunc(i / cols.length),
-            r: i % cols.length,
-            name: 'item_' + i
-        }
-    }
-
-
-
-
-    for (let i = 0; i < size; i++) {
-        const point = createPoint(i);
-        const div = (
-            <div key={point.name}>
-                {cols[point.c]} x {rows[point.r]}
-                <code>
-                    {point.c} x {point.r}
-                </code>
+        return (
+            <div key={'__' + ix} className={it.name} >
+                <h1>{it.name}</h1>
             </div>
         )
-        divs.push(div);
-    }
+    })
+
 
     const gtc = cols.reduce((str, it) => str + ' ' + it, '');
     const gtr = rows.reduce((str, it) => str + ' ' + it, '');
@@ -44,11 +33,16 @@ export const GridDraw = ({ name = 'draw', selected = 'selected', cols = [], rows
         grid-template-rows: ${gtr};
         gap: ${gg};
     }
+    
+    ${inlineDivStyle}
+    
     `
     return (
-        <div className="grid-draw">
+        <>
             <style>{inlineStyle}</style>
-            {divs}
-        </div>
+            <div className="grid-draw">
+                {divs}
+            </div>
+        </>
     )
 }
