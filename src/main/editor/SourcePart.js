@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import { useLocalStorage } from 'react-use-storage';
 
 export const SourcePart = ({ className }) => {
@@ -18,26 +17,12 @@ export const SourcePart = ({ className }) => {
     gap: ${gridGaps};
 }
     `
-    const [ref, onToggle] = useToggle()
     return (
-        <div className={className} ref={ref}>
+        <div className={className}>
             <code className="card card-sm">
                 <h5 className="card-header">CSS Source</h5>
                 <pre className="card-body">{inlineStyle}</pre>
             </code>
-            <button className="move" onClick={onToggle}>
-                <i className="fa fa-arrow-left" />
-            </button>
         </div>
     )
-}
-
-const useToggle = (name = 'close') => {
-    const ref = useRef(null)
-    const onToggle = () => {
-        if (ref.current) {
-            ref.current.classList.toggle(name)
-        }
-    }
-    return [ref, onToggle]
 }

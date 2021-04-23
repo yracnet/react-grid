@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const ActionPart = ({ className }) => {
+export const ActionPart = ({ ...props }) => {
     return (
-        <div className={className}>
+        <div {...props}>
             <div className="btn-group m-3">
                 <button className="btn btn-danger">
                     <i className="fa fa-tv mr-2" />

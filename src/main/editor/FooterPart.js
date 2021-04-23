@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const FooterPart = () => {
+export const FooterPart = ({ name, ...props }) => {
     return (
-        <footer>
+        <footer {...props}>
             <h6>Footer....</h6>
         </footer>
     )

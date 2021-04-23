@@ -1,9 +1,8 @@
 import React from 'react'
 
-export const HeaderPart = ({ className, name }) => {
+export const HeaderPart = ({ name, ...props }) => {
     return (
-        <div className={className}>
-
+        <header {...props}>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <a className="navbar-brand" href="#/home">
                     <img src={process.env.PUBLIC_URL + '/_/android-chrome-192x192.png'}
@@ -14,6 +13,6 @@ export const HeaderPart = ({ className, name }) => {
                     {name}
                 </a>
             </nav>
-        </div>
+        </header>
     )
 }

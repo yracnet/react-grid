@@ -3,7 +3,7 @@ import { useLocalStorage } from 'react-use-storage';
 
 import "./PreviewPart.scss";
 
-export const PreviewPart = ({ className }) => {
+export const PreviewPart = ({ ...props }) => {
     const [col] = useLocalStorage('columns', []);
     const [row] = useLocalStorage('rows', []);
     const [gap] = useLocalStorage('gaps', []);
@@ -27,7 +27,7 @@ export const PreviewPart = ({ className }) => {
     }
     `
     return (
-        <div className={className}>
+        <div {...props}>
             <style>{inlineStyle}</style>
             <div className="grid-root">
                 <div className="grid-dotted">

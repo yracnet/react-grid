@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const OptionPart = ({ className }) => {
+export const OptionPart = ({ ...props }) => {
     return (
-        <div className={className}>
+        <div {...props}>
             <button className="btn btn-danger">
                 <i className="fa fa-download mr-2" />
                 Download

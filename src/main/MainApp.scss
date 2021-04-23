@@ -16,54 +16,67 @@ body,
 }
 
 .grid-main {
-    display: grid;
-    grid-template-columns: 230px 1.1fr 350px;
-    grid-template-rows: 50px 1fr 80px;
-    grid-template-areas:
-        "header preview action"
-        "config preview source"
-        "footer preview option";
     width: 100%;
     height: 100%;
-    background-color: $primary;
-    > .header {
-        grid-area: header;
-        align-items: center;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: 1fr;
+    grid-template-areas: "left main right";
+    > .left {
+        grid-area: left;
+        background-color: $primary;
         display: grid;
-        padding: 0 2px;
-    }
-    > .config {
-        grid-area: config;
-        padding: 10px;
-    }
-    > .footer {
-        grid-area: footer;
-    }
-    > .action {
-        grid-area: action;
-        align-items: center;
-        display: grid;
-        padding: 0 2px;
-    }
-    > .source {
-        grid-area: source;
-        padding: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr 80px;
+        gap: 5px 0px;
+        grid-template-areas:
+            "header"
+            "config"
+            "footer";
         position: relative;
+        > .header {
+            grid-area: header;
+        }
+        > .footer {
+            grid-area: footer;
+        }
+        > .config {
+            grid-area: config;
+        }
     }
-    > .option {
-        grid-area: option;
-        align-items: center;
+    > .main {
+        grid-area: main;
+        padding: 10px;
+        > .preview {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    > .right {
+        grid-area: right;
+        background-color: $primary;
         display: grid;
-        padding: 0 5px;
-    }
-    > .preview {
-        grid-area: preview;
-        padding: 5px;
-        background-color: #f7f7f7;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr 80px;
+        gap: 5px 0px;
+        grid-template-areas:
+            "action"
+            "source"
+            "option";
+        position: relative;
+        > .action {
+            grid-area: action;
+        }
+        > .option {
+            grid-area: option;
+        }
+        > .source {
+            grid-area: source;
+        }
     }
 }
 
-.move {
+.btn-toggle {
     position: absolute;
     top: 50%;
     left: -10px;
@@ -76,4 +89,26 @@ body,
     background-color: white;
     color: red;
     z-index: 9999;
+    .btn-open {
+        display: none;
+    }
+    .btn-close {
+        display: block;
+    }
+}
+.collapse {
+    width: 0px;
+    > * {
+        display: none;
+    }
+    .root-toggle,
+    .btn-toggle {
+        display: block;
+        .btn-open {
+            display: block;
+        }
+        .btn-close {
+            display: none;
+        }
+    }
 }
