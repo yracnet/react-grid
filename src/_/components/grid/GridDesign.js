@@ -28,7 +28,7 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
     const endSelection = (point) => {
         selecting = false;
         end = point
-        setState([...state, { name: 'C_' + state.length, start, end, edit: true }])
+        setState([...state, { name: 'C_' + state.length, start, end, color: '#4A90E2' }])
         ref.current.querySelectorAll('div').forEach(it => it.classList.remove('on'))
     };
 

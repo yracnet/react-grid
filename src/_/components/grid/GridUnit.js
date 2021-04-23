@@ -15,6 +15,16 @@ export const GridUnit = ({ title, name = 'grid-item' }) => {
     const onChange = ({ target }, ix) => {
         const { name, value } = target;
         const newState = [...state]
+        if (['auto', 'min-content', 'max-content', 'minmax'].indexOf(value) !== -1) {
+            newState[ix].value = '';
+        } else if (value === 'px') {
+            newState[ix].value = 300;
+        } else if (value === '%') {
+            newState[ix].value = 50;
+        } else {
+            newState[ix].value = 1;
+        }
+
         newState[ix][name] = value;
         setState(newState)
     }
@@ -27,7 +37,9 @@ export const GridUnit = ({ title, name = 'grid-item' }) => {
             <h5 className="card-header">
                 {title}
                 <button onClick={onAppend}
-                    className="btn btn-sm btn-primary float-right">+</button>
+                    className="btn btn-sm btn-primary float-right">
+                    <i className="fa fa-plus" />
+                </button>
             </h5>
             <div className="card-body">
                 {
@@ -62,7 +74,9 @@ const ItemInput = ({ index = 0, model = {}, onChange = console.log, onRemove = c
             </select>
             <div className="input-group-append">
                 <button onClick={e => onRemove(index)}
-                    className="btn btn-danger">x</button>
+                    className="btn btn-danger">
+                    <i className="fa fa-times" />
+                </button>
             </div>
         </div>
     )

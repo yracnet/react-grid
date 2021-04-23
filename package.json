@@ -6,6 +6,7 @@
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
     "react": "^17.0.2",
+    "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-use-storage": "^0.4.3",
