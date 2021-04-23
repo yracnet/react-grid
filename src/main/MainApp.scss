@@ -23,6 +23,7 @@ body,
     grid-template-rows: 1fr;
     grid-template-areas: "left main right";
     > .left {
+        position: relative;
         grid-area: left;
         background-color: $primary;
         display: grid;
@@ -33,7 +34,6 @@ body,
             "header"
             "config"
             "footer";
-        position: relative;
         > .header {
             grid-area: header;
         }
@@ -45,6 +45,7 @@ body,
         }
     }
     > .main {
+        position: relative;
         grid-area: main;
         padding: 10px;
         > .preview {

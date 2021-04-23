@@ -12,7 +12,7 @@ export const GridGap = ({ title, name = 'grid-gap' }) => {
         setState(newState)
     }
     return (
-        <div className="card card-sm">
+        <div className="card card-sm mb-2">
             <h5 className="card-header">{title}</h5>
             <div className="card-body">
                 <GapInput index={0} model={state[0]} onChange={onChange} />

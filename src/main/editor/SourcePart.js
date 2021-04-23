@@ -5,16 +5,20 @@ export const SourcePart = ({ className }) => {
     const [row] = useLocalStorage('rows', []);
     const [gap] = useLocalStorage('gaps', []);
 
-    const gridCols = col.reduce((str, it) => str + ' ' + it.value + it.unit, '');
-    const gridRows = row.reduce((str, it) => str + ' ' + it.value + it.unit, '');
-    const gridGaps = gap.reduce((str, it) => str + ' ' + it.value + it.unit, '');
+    const gtc = col.reduce((str, it) => str + ' ' + it.value + it.unit, '');
+    const ctr = row.reduce((str, it) => str + ' ' + it.value + it.unit, '');
+    const gg = gap.reduce((str, it) => str + ' ' + it.value + it.unit, '');
 
     const inlineStyle = `
 .grid-container {
     display: grid;
-    grid-template-columns: ${gridCols};
-    grid-template-rows: ${gridRows};
-    gap: ${gridGaps};
+    grid-template-columns: ${gtc};
+    grid-template-rows: ${ctr};
+    gap: ${gg};
+    grid-template-areas:
+        ". . . . ."
+        ". . . . ."
+        ". . . . .";
 }
     `
     return (
