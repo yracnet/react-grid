@@ -18,7 +18,7 @@ const DEVICES = [
 export const DEFAULT_DEVICE = DEVICES[0]
 
 export const ActionPart = ({ ...props }) => {
-    const [device, setDivice] = useLocalStorage('device', DEFAULT_DEVICE);
+    const [device, setDivice] = useLocalStorage('grid-device', DEFAULT_DEVICE);
     const onClickDevice = (it) => {
         if (it.name === device.name) {
             it.verical = !it.verical;

@@ -5,7 +5,7 @@ import { DEFAULT_DEVICE } from './ActionPart';
 
 export const PreviewPart = ({ ...props }) => {
 
-    const [device] = useLocalStorage('device', DEFAULT_DEVICE);
+    const [device] = useLocalStorage('grid-device', DEFAULT_DEVICE);
     const [cols] = useLocalStorage('grid-cols', []);
     const [rows] = useLocalStorage('grid-rows', []);
     const [gaps] = useLocalStorage('grid-gaps', []);
