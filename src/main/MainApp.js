@@ -10,7 +10,7 @@ import './MainApp.scss';
 function MainApp() {
   return (
     <div className="grid-main">
-      <div className="left p-2" ref={refR} >
+      <div className="left p-2">
         <HeaderPart className="header" name="Grid Editor" />
         <FooterPart className="footer" />
         <ConfigPart className="config" />
@@ -18,7 +18,7 @@ function MainApp() {
 
       <PreviewPart className="main m-2" />
 
-      <div className="right p-2" ref={refL}>
+      <div className="right p-2">
         <ActionPart className="action" />
         <SourcePart className="source" />
         <OptionPart className="option" />
