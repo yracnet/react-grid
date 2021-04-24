@@ -1,7 +1,8 @@
 {
-  "name": "define-grid",
+  "name": "react-grid",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yracnet.github.io/react-grid",
   "dependencies": {
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
