@@ -15,7 +15,7 @@ const DEVICES = [
     { name: 'XS', icon: 'fa-android', width: '400px', height: '800px', verical: true }
 ]
 
-export const DEFAULT_DEVICE = DEVICES[1]
+export const DEFAULT_DEVICE = DEVICES[0]
 
 export const ActionPart = ({ ...props }) => {
     const [device, setDivice] = useLocalStorage('device', DEFAULT_DEVICE);

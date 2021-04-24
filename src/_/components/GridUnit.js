@@ -1,9 +1,10 @@
 import React from 'react'
 import { useLocalStorage } from 'react-use-storage'
 
+const INIT = [{ "key": 1619224737325, "value": 1, "unit": "fr" }, { "key": 1619224737795, "value": 1, "unit": "fr" }, { "key": 1619224879892, "value": 1, "unit": "fr" }]
 
 export const GridUnit = ({ title, name = 'grid-cols' }) => {
-    const [state, setState] = useLocalStorage(name, []);
+    const [state, setState] = useLocalStorage(name, INIT);
     const onAppend = () => {
         const item = {
             key: new Date().getTime(),

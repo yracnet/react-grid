@@ -1,5 +1,3 @@
-
-import { useToggle } from '_/hooks/useToggle';
 import { ActionPart } from './editor/ActionPart';
 import { ConfigPart } from './editor/ConfigPart';
 import { FooterPart } from './editor/FooterPart';
@@ -10,12 +8,9 @@ import { SourcePart } from './editor/SourcePart';
 import './MainApp.scss';
 
 function MainApp() {
-  const [refL, , btnL] = useToggle()
-  const [refR, , btnR] = useToggle()
   return (
     <div className="grid-main">
       <div className="left p-2" ref={refR} >
-        {btnR}
         <HeaderPart className="header" name="Grid Editor" />
         <FooterPart className="footer" />
         <ConfigPart className="config" />
@@ -24,7 +19,6 @@ function MainApp() {
       <PreviewPart className="main m-2" />
 
       <div className="right p-2" ref={refL}>
-        {btnL}
         <ActionPart className="action" />
         <SourcePart className="source" />
         <OptionPart className="option" />
