@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocalStorage } from 'react-use-storage'
 
 
-export const GridUnit = ({ title, name = 'grid-item' }) => {
+export const GridUnit = ({ title, name = 'grid-cols' }) => {
     const [state, setState] = useLocalStorage(name, []);
     const onAppend = () => {
         const item = {
@@ -18,13 +18,12 @@ export const GridUnit = ({ title, name = 'grid-item' }) => {
         if (['auto', 'min-content', 'max-content', 'minmax'].indexOf(value) !== -1) {
             newState[ix].value = '';
         } else if (value === 'px') {
-            newState[ix].value = 300;
+            newState[ix].value = 100;
         } else if (value === '%') {
             newState[ix].value = 50;
         } else {
             newState[ix].value = 1;
         }
-
         newState[ix][name] = value;
         setState(newState)
     }

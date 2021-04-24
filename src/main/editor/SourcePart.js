@@ -5,11 +5,15 @@ export const SourcePart = ({ className }) => {
     const [cols] = useLocalStorage('grid-cols', []);
     const [rows] = useLocalStorage('grid-rows', []);
     const [gaps] = useLocalStorage('grid-gaps', []);
-    const [items] = useLocalStorage('grid-items', []);
+    const [items, setItems] = useLocalStorage('grid-items', []);
     const opts = { cols, rows, gaps }
 
     const allowItems = assertItems(items, opts);
-    console.log('allowItems', allowItems);
+    if (items.length !== allowItems.length) {
+        // ??????
+        setItems(allowItems)
+    }
+
     const inlineStyle = createCSS('grid-container', allowItems, opts);
     const inlineHtml = createHTML('grid-container', allowItems, opts);
 

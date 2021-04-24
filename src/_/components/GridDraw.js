@@ -4,12 +4,13 @@ import "./GridDraw.scss"
 
 
 export const GridDraw = ({ store = 'grid-items', cols = [], rows = [], gaps = [] }) => {
-    const [items] = useLocalStorage(store, []);
-
-
+    const [items, setItems] = useLocalStorage(store, []);
     const opts = { cols, rows, gaps }
     const allowItems = assertItems(items, opts);
-
+    if (items.length !== allowItems.length) {
+        // ??????
+        setItems(allowItems)
+    }
     const divs = allowItems.map((it, ix) => {
         return (
             <div key={'__' + ix} className={it.name} >
