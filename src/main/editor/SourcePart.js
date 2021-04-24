@@ -1,14 +1,17 @@
 import { useLocalStorage } from 'react-use-storage';
-import { createCSS, createHTML } from '_/helpers/grid';
+import { assertItems, createCSS, createHTML } from '_/helpers/grid';
 
 export const SourcePart = ({ className }) => {
-    const [cols] = useLocalStorage('columns', []);
-    const [rows] = useLocalStorage('rows', []);
-    const [gaps] = useLocalStorage('gaps', []);
-    const [items] = useLocalStorage('grid-design', []);
+    const [cols] = useLocalStorage('grid-cols', []);
+    const [rows] = useLocalStorage('grid-rows', []);
+    const [gaps] = useLocalStorage('grid-gaps', []);
+    const [items] = useLocalStorage('grid-items', []);
+    const opts = { cols, rows, gaps }
 
-    const inlineStyle = createCSS('grid-container', { cols, rows, gaps, items });
-    const inlineHtml = createHTML('grid-container', { cols, rows, gaps, items });
+    const allowItems = assertItems(items, opts);
+    console.log('allowItems', allowItems);
+    const inlineStyle = createCSS('grid-container', allowItems, opts);
+    const inlineHtml = createHTML('grid-container', allowItems, opts);
 
     return (
         <div className={className}>

@@ -6,13 +6,10 @@ import { DEFAULT_DEVICE } from './ActionPart';
 export const PreviewPart = ({ ...props }) => {
 
     const [device] = useLocalStorage('device', DEFAULT_DEVICE);
-    const [col] = useLocalStorage('columns', []);
-    const [row] = useLocalStorage('rows', []);
-    const [gap] = useLocalStorage('gaps', []);
-
-    const cols = col.map(it => it.value + it.unit);
-    const rows = row.map(it => it.value + it.unit);
-    const gaps = gap.map(it => it.value + it.unit);
+    const [cols] = useLocalStorage('grid-cols', []);
+    const [rows] = useLocalStorage('grid-rows', []);
+    const [gaps] = useLocalStorage('grid-gaps', []);
+    const [items] = useLocalStorage('grid-items', []);
 
     const inlineStyle = `
     .device{
@@ -20,16 +17,14 @@ export const PreviewPart = ({ ...props }) => {
         margin: 0 auto;
         width: ${device.verical ? device.width : device.height};
         height: ${device.verical ? device.height : device.width};
-
-
     }
     `
     return (
         <div {...props}>
             <style>{inlineStyle}</style>
             <div className="device">
-                <GridDraw cols={cols} rows={rows} gaps={gaps} store="grid-design" />
-                <GridDesign cols={cols} rows={rows} gaps={gaps} store="grid-design" />
+                <GridDraw cols={cols} rows={rows} gaps={gaps} store="grid-items" />
+                <GridDesign cols={cols} rows={rows} gaps={gaps} store="grid-items" />
             </div>
         </div>
     )

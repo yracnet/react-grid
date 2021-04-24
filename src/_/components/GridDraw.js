@@ -1,13 +1,16 @@
 import { useLocalStorage } from 'react-use-storage';
-import { createCSS } from '_/helpers/grid';
+import { assertItems, createCSS } from '_/helpers/grid';
 import "./GridDraw.scss"
 
 
-export const GridDraw = ({ store = 'draw', cols = [], rows = [], gaps = [] }) => {
-    const [state] = useLocalStorage(store, []);
+export const GridDraw = ({ store = 'grid-items', cols = [], rows = [], gaps = [] }) => {
+    const [items] = useLocalStorage(store, []);
 
 
-    const divs = state.map((it, ix) => {
+    const opts = { cols, rows, gaps }
+    const allowItems = assertItems(items, opts);
+
+    const divs = allowItems.map((it, ix) => {
         return (
             <div key={'__' + ix} className={it.name} >
                 <h1 className="legend">{it.name}</h1>
@@ -15,7 +18,7 @@ export const GridDraw = ({ store = 'draw', cols = [], rows = [], gaps = [] }) =>
         )
     })
 
-    const inlineStyle = createCSS('grid-draw', { cols, rows, gaps, items: state });
+    const inlineStyle = createCSS('grid-draw', items, opts);
 
     return (
         <>

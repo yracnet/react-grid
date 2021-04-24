@@ -19,7 +19,10 @@ export const GridItem = ({ title, store }) => {
             <h5 className="card-header">{title}</h5>
             <div className="card-body">
                 {state.map((it, ix) => (
-                    <ItemInput model={it} index={ix}
+                    <ItemInput
+                        key={it.key}
+                        model={it}
+                        index={ix}
                         onChange={onChange}
                         onRemove={onRemove} />
                 ))}

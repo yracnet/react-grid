@@ -4,8 +4,8 @@ import { createCSS } from '_/helpers/grid';
 import "./GridDesign.scss"
 NodeList.prototype.forEach = Array.prototype.forEach;
 
-export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = [] }) => {
-    const [state, setState] = useLocalStorage(store, []);
+export const GridDesign = ({ store = 'grid-items', cols = [], rows = [], gaps = [] }) => {
+    const [items, setItems] = useLocalStorage(store, []);
     const size = cols.length * rows.length;
     const ref = useRef()
     let divs = [];
@@ -14,8 +14,8 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
     const createPoint = (i) => {
         return {
             i,
-            c: Math.trunc(i / cols.length),
-            r: i % cols.length,
+            r: Math.trunc(i / cols.length),
+            c: i % cols.length,
             name: 'item_' + i
         }
     }
@@ -29,7 +29,14 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
     const endSelection = (point) => {
         selecting = false;
         end = point
-        setState([...state, { name: 'cell' + state.length, start, end, color: randomColor() }])
+        const item = {
+            key: 'r-' + new Date().getTime(),
+            name: 'cell' + items.length,
+            start,
+            end,
+            color: randomColor()
+        }
+        setItems([...items, item])
         ref.current.querySelectorAll('div').forEach(it => it.classList.remove('on'))
     };
 
@@ -63,7 +70,7 @@ export const GridDesign = ({ store = 'selected', cols = [], rows = [], gaps = []
         divs.push(div);
     }
 
-    const inlineStyle = createCSS('grid-design', { cols, rows, gaps });
+    const inlineStyle = createCSS('grid-design', items, { cols, rows, gaps });
 
     return (
         <div className="grid-design" ref={ref}>

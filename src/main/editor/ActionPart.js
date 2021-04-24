@@ -30,7 +30,7 @@ export const ActionPart = ({ ...props }) => {
             <div className="btn-group m-3">
                 {
                     DEVICES.map(it => (
-                        <button name="tv"
+                        <button key={it.name}
                             onClick={e => onClickDevice(it)}
                             className={'btn ' + (it.name === device.name ? 'btn-danger ' : 'btn-primary')} >
                             <i className={'mr-1 fa ' + it.icon} />
