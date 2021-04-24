@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-grid/static/css/main.2d6e6789.chunk.css",
+    "main.js": "/react-grid/static/js/main.cbd754cc.chunk.js",
+    "main.js.map": "/react-grid/static/js/main.cbd754cc.chunk.js.map",
+    "runtime-main.js": "/react-grid/static/js/runtime-main.678fb019.js",
+    "runtime-main.js.map": "/react-grid/static/js/runtime-main.678fb019.js.map",
+    "static/css/2.0e598ebd.chunk.css": "/react-grid/static/css/2.0e598ebd.chunk.css",
+    "static/js/2.a3b469a9.chunk.js": "/react-grid/static/js/2.a3b469a9.chunk.js",
+    "static/js/2.a3b469a9.chunk.js.map": "/react-grid/static/js/2.a3b469a9.chunk.js.map",
+    "index.html": "/react-grid/index.html",
+    "static/css/2.0e598ebd.chunk.css.map": "/react-grid/static/css/2.0e598ebd.chunk.css.map",
+    "static/css/main.2d6e6789.chunk.css.map": "/react-grid/static/css/main.2d6e6789.chunk.css.map",
+    "static/js/2.a3b469a9.chunk.js.LICENSE.txt": "/react-grid/static/js/2.a3b469a9.chunk.js.LICENSE.txt",
+    "static/media/MainApp.scss": "/react-grid/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.678fb019.js",
+    "static/css/2.0e598ebd.chunk.css",
+    "static/js/2.a3b469a9.chunk.js",
+    "static/css/main.2d6e6789.chunk.css",
+    "static/js/main.cbd754cc.chunk.js"
+  ]
+}
