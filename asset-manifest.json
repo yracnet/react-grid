@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-grid/static/css/main.2d6e6789.chunk.css",
-    "main.js": "/react-grid/static/js/main.cbd754cc.chunk.js",
-    "main.js.map": "/react-grid/static/js/main.cbd754cc.chunk.js.map",
+    "main.js": "/react-grid/static/js/main.2d948ff5.chunk.js",
+    "main.js.map": "/react-grid/static/js/main.2d948ff5.chunk.js.map",
     "runtime-main.js": "/react-grid/static/js/runtime-main.678fb019.js",
     "runtime-main.js.map": "/react-grid/static/js/runtime-main.678fb019.js.map",
     "static/css/2.0e598ebd.chunk.css": "/react-grid/static/css/2.0e598ebd.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.0e598ebd.chunk.css",
     "static/js/2.a3b469a9.chunk.js",
     "static/css/main.2d6e6789.chunk.css",
-    "static/js/main.cbd754cc.chunk.js"
+    "static/js/main.2d948ff5.chunk.js"
   ]
 }
